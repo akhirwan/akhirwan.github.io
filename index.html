@@ -1,1 +1,58 @@
-Hello World
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Belajar Dasar Pemrograman Web | Submission</title>
+	<!-- menghubungkan dengan file css -->
+	<link rel="stylesheet" type="text/css" href="css/proyek.css">
+	<!-- menghubungkan dengan file jquery -->
+	<script type="text/javascript" src="jquery.js"></script>
+</head>
+<body>
+<!-- 
+Author : Akhirwan Novendi
+-->
+<div class="content">
+	<header>
+		<h1 class="judul">My Personal Information</h1>
+		<h3 class="deskripsi">Akhirwan Novendi</h3>
+	</header>
+
+	<div class="menu">
+		<ul>
+			<li><a href="index.php?hal=home">HOME</a></li>
+			<li><a href="index.php?hal=tentang">TENTANG</a></li>
+			<li><a href="index.php?hal=tutorial">TUTORIAL</a></li>
+		</ul>
+	</div>
+
+	<div class="badan">
+
+
+	<?php 
+	if(isset($_GET['hal'])){
+		$page = $_GET['hal'];
+
+		switch ($page) {
+			case 'home':
+				include "page/home.php";
+				break;
+			case 'tentang':
+				include "page/tentang.php";
+				break;
+			case 'tutorial':
+				include "page/tutorial.php";
+				break;			
+			default:
+				echo "<center><h3>Maaf. Halaman tidak di temukan !</h3></center>";
+				break;
+		}
+	}else{
+		include "page/home.php";
+	}
+
+	 ?>
+
+	</div>
+</div>
+</body>
+</html>
